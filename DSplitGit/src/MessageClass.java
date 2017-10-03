@@ -95,7 +95,7 @@ public class MessageClass {
 		{
 			jlbempty.setText(sb.toString());
 		} else {
-			App.jlbMsg.setText(sb.toString());
+			AppGui.jlbMsg.setText(sb.toString());
 		}
 			
 		
@@ -105,7 +105,7 @@ public class MessageClass {
 		{
 			jlbempty.setText(sMsg);
 		} else {
-			App.jlbMsg.setText(sMsg);
+			AppGui.jlbMsg.setText(sMsg);
 		}
 		
 	}

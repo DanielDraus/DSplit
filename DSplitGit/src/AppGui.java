@@ -15,7 +15,7 @@ import javax.swing.JSeparator;
 import java.awt.Window.Type;
 import java.awt.Toolkit;
 
-public class App {
+public class AppGui{
 	private FileAdmin admin;
 	private boolean bNewButtonVisible = false;
 	private boolean btFSizeVisible = false;
@@ -33,7 +33,7 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					App window = new App();
+					AppGui window = new AppGui();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,16 +45,16 @@ public class App {
 	/**
 	 * Create the application.
 	 */
-	public App() {
+	public AppGui() {
 		initialize();
 		admin = new FileAdmin();
 		
 	}
 	public static void SetProgressBar(int destIx)
 	{
-		App.progressBar.setValue(destIx);
-        App.progressBar.setStringPainted(true);
-        App.progressBar.repaint();  
+		AppGui.progressBar.setValue(destIx);
+		AppGui.progressBar.setStringPainted(true);
+		AppGui.progressBar.repaint();  
     	
 	}
 	public static void InitProgressBar(int numSplits)
@@ -97,7 +97,7 @@ public class App {
 	private void initialize() {
 		AppActions MyAppActions = new AppActions(admin);
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(App.class.getResource("/sun/print/resources/duplex.png")));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(AppGui.class.getResource("/sun/print/resources/duplex.png")));
 		frame.setResizable(false);
 		frame.setType(Type.UTILITY);
 		frame.setBounds(100, 100, 916, 403);

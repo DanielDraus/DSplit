@@ -23,13 +23,13 @@ public class AppActions implements ActionListener {
 			if (sCommandName.equals("Select output location") )
 			{
 				bbtnOutLocVisible = !bbtnOutLocVisible;
-				App.btnOutLocSetVisible(bbtnOutLocVisible);
+				AppGui.btnOutLocSetVisible(bbtnOutLocVisible);
 			}
 			else if (sCommandName.equals("Set file size in Mb") )
 			{
 				btFSizeVisible = !btFSizeVisible;
 				System.out.println(btFSizeVisible);
-				App.setJsMySpinnerVisible(btFSizeVisible);
+				AppGui.setJsMySpinnerVisible(btFSizeVisible);
 			}
 		}
 		if (e.getSource() instanceof JButton) {
@@ -38,8 +38,8 @@ public class AppActions implements ActionListener {
 			{
 				try {
 					admin.PickFile();
-					App.setTextLb1(admin.getFullFilePath());
-					App.setTextLb2(admin.getFilePath());
+					AppGui.setTextLb1(admin.getFullFilePath());
+					AppGui.setTextLb2(admin.getFilePath());
 				} catch (FileNotFoundException ex) {
 					ex.printStackTrace();
 				}
@@ -52,13 +52,13 @@ public class AppActions implements ActionListener {
 			{
 				try {
 					admin.PickFolder(admin.getFilePath());
-					App.setTextLb2(admin.getFolderPath());
+					AppGui.setTextLb2(admin.getFolderPath());
 				} catch (FileNotFoundException ex) {
 					ex.printStackTrace();
 				} catch (NullPointerException ex) {
 					try {
 						admin.PickFolder();
-						App.setTextLb2(admin.getFolderPath());
+						AppGui.setTextLb2(admin.getFolderPath());
 					} catch (FileNotFoundException ex2) {
 						ex2.printStackTrace();
 					}
@@ -69,11 +69,11 @@ public class AppActions implements ActionListener {
 			{
 				admin.stopOperation(false);
 				try {
-					App.SetProgressBarVal(0);
+					AppGui.SetProgressBarVal(0);
 					new Thread(new Runnable() {
 			            @Override
 			            public void run() {
-			            	admin.setBytesPerSplit(App.getJsMySpinnerSize());
+			            	admin.setBytesPerSplit(AppGui.getJsMySpinnerSize());
 			            	
 							try {
 								admin.StartSplit(false);

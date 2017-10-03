@@ -215,11 +215,11 @@ public  class FileAdmin {
 		long numSplits = 10; //from user input, extract it from args
         long sourceSize = raf.length();
         numSplits = (sourceSize / bytesPerSplit) + 1;
-        App.InitProgressBar((int) numSplits);
+        AppGui.InitProgressBar((int) numSplits);
     	this.MyMessageClass.AddMsg("Split " + sFileToSplit + " to " + numSplits + " files"); 
         
         int maxReadBufferSize = 1048576; // 1 Mb 1024 * 8 ;//8kB //
-        App.SetProgressBar(0);
+        AppGui.SetProgressBar(0);
         try {
 			java.lang.Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -230,7 +230,7 @@ public  class FileAdmin {
         for(int destIx=1; destIx <= numSplits; destIx++) {
         	if (FileAdmin.bstopOperation)  return;
         	String sNewSplitFile = getFolderPath() + "/" + getFileName() +  "_"+destIx + "." + getExtension();
-        	App.SetProgressBar(destIx); 
+        	AppGui.SetProgressBar(destIx); 
         	BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(sNewSplitFile));
             if(bytesPerSplit > maxReadBufferSize) {
                 long numReads = bytesPerSplit/maxReadBufferSize;
