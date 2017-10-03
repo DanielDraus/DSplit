@@ -1,7 +1,5 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.Collections;
-
 import javax.swing.*;
 
 public class MessageClass {

@@ -4,11 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /**
  * 
@@ -86,7 +83,7 @@ public  class FileAdmin {
 	}
 	public void stopOperation(boolean bStop)
 	{
-		this.bstopOperation = bStop;	
+		FileAdmin.bstopOperation = bStop;	
 	}
 	
 	/**
@@ -231,7 +228,7 @@ public  class FileAdmin {
 		}
         
         for(int destIx=1; destIx <= numSplits; destIx++) {
-        	if (this.bstopOperation)  return;
+        	if (FileAdmin.bstopOperation)  return;
         	String sNewSplitFile = getFolderPath() + "/" + getFileName() +  "_"+destIx + "." + getExtension();
         	App.SetProgressBar(destIx); 
         	BufferedOutputStream bw = new BufferedOutputStream(new FileOutputStream(sNewSplitFile));
