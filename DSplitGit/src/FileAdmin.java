@@ -236,8 +236,7 @@ public  class FileAdmin {
                 long numReads = bytesPerSplit/maxReadBufferSize;
                 long numRemainingRead = bytesPerSplit % maxReadBufferSize;
                 for(int i=0; i<numReads; i++) {
-                    readWrite(raf, bw, maxReadBufferSize);
-                    
+                    readWrite(raf, bw, maxReadBufferSize); 
                 }
                 if(numRemainingRead > 0) {
                     readWrite(raf, bw, numRemainingRead);
@@ -247,15 +246,14 @@ public  class FileAdmin {
             }
             bw.close();
             this.MyMessageClass.AddMsg("File " + sNewSplitFile + " created");
-           
-            
         }
             raf.close();
 	}
-
+	
 	public MessageClass getMyMessageClass() {
 		return MyMessageClass;
 	}
+	
 	public void setMyMessageClass(MessageClass myMessageClass) {
 		MyMessageClass = myMessageClass;
 	}
